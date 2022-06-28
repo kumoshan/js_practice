@@ -28,13 +28,18 @@
     </nav>
 <!--等到HTML都讀完才執行-->
 <script>
-document.getElementById('btn-nav-toggle').addEventListener('click',openNav)
+let btnNavToggle = document.getElementById('btn-nav-toggle')
+let primaryNavigation = document.getElementById('primary-navigation')
+
+
+documentbtnNavToggle.addEventListener('click',openNav)
+
 //函式名稱
 function openNav(){
-if(document.getElementById('primary-navigation').classList.contains('active') ==true){
+if( primaryNavigation.classList.contains('active') ==true){
 // 
-    document.getElementById("primary-navigation").classList.remove('active')   
-}else{document.getElementById("primary-navigation").classList.add('active')
+primaryNavigation.classList.remove('active')   
+}else{ primaryNavigation.classList.add('active')
 }
    
 console.log('點按鈕打開主導覽')
