@@ -58,18 +58,25 @@
         </div>
 
         <script>
-            let modalWrapper   = document.getElementsByClassName('modal-wrapper')[0]
-        let btnCloseSwitch = document.getElementById('btn-close-switch')
-        btnCloseSwitch.addEventListener('click', closeModal)
+            let modalWrapper = document.getElementsByClassName('modal-wrapper')[0]
+            let btnCloseSwitch = document.getElementById('btn-close-switch')
+            btnCloseSwitch.addEventListener('click', closeModal)
 
-        function openModal(){
-            modalWrapper.classList.add('active')
-        } // openModal end
+            function openModal() {
+                modalWrapper.classList.add('active')
+            } // openModal end
 
-        function closeModal(){
-            modalWrapper.classList.remove('active')
-        } //closeModal end
-    
+            function closeModal(e) {
+                if(e.target == this)
+                comsole.log('符合')
+                modalWrapper.classList.remove('active')
+                else{
+                    console.log('不符合')
+                }
+               modalWrapper.classList.remove('active')
+            } //closeModal end
+            
+
         </script>
 </body>
 
