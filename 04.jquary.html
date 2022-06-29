@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul>li.active {
+            color: blueviolet;
+        }
+
+        #box {
+            background-color: aqua;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+    </ul>
+    <p>點按顯示/關閉盒子</p>
+    </ul>
+    <a id="btn-box-switch" href="javascript:;">點按顯示/關閉盒子</a>
+    <div id="box">box</div>
+
+    </div>
+
+
+
+    <!--juary主程式-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+        //$('ul>li').addClass('active')
+
+        //點擊再執行
+        $('ul>li').on('click', addRedText)  //addRedText 是自己命名 
+        function addRedText() {
+            $(this).toggleClass('active')
+        } //點項目切換顏色
+
+        $('#btn-box-switch').on('click', function(){
+            $('#box').fadeToggle()
+            //toggle show/hide切換
+        }) // #btn-box-switch end
+        
+
+    </script>
+
+
+</body>
+
+</html>
