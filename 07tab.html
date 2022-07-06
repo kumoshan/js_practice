@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頁籤轉換</title>
+    <style>
+.tab-link{display: flex;}
+        .tab-link>a{text-decoration: none;
+        width: 31%;
+        margin: 1%;
+    display: block;
+background-color: aqua;
+line-height: 40px;
+text-align: center;}
+.tab-content{display:none}
+.tab-link>a.active {background-color: antiquewhite;}
+.tab-content.active{display:block}
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="tab-link">
+        <a href="#tab1" class="active">商品資訊
+        </a>
+        <a href="#tab2">出價紀錄
+
+        </a><a href="#tab3">問與答</a>
+    </div>
+
+
+    <div id="tab1"  class=" tab-content active" >內容一</div>
+    <div id="tab2" class=" tab-content">內容二</div>
+    <div id="tab3" class=" tab-content">內容三</div>
+
+    <!--juary主程式-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+$('.tab-link>a').on('click',function(e){
+    e.preventDefault()
+    $(this).addClass('active')
+    $(this).siblings().removeClass('active')
+$($(this).attr('href')).addClass('active')
+$($(this).attr('href')).siblings().removeClass('active')
+}
+
+
+)
+
+
+
+</script>
+</body>
+
+</html>

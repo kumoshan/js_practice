@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+</head>
+<style>
+    /*可視範圍寬*/
+    .parent {
+        width: 500px;
+        /*height: 450px;*/
+        margin: auto;
+        /*把子層用不見(父層之外的)只顯示一張*/
+        overflow: hidden;
+        position: relative;
+    }
+
+    .child {
+        /*圖片寬度*項目個數*/
+        width: 2000px;
+        /*去除行內空白 文字大小0*/
+        font-size: 0;
+        /*position: absolute;
+    top:0px;
+    left:0px;*/
+    }
+
+    /*同父層一樣寬*/
+    .parent img {
+        width: 500px;
+    }
+    .left-arrow,.right-arrow{
+    position: absolute;
+    top:0px;
+    cursor: pointer;
+    /*background-color: aqua;*/
+    width: 40px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .left-arrow { left:0px;}
+
+    .right-arrow {
+        right:0px;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <img src="public/images/product-31.svg" alt="">
+            <img src="public/images/product-32.svg" alt="">
+            <img src="public/images/product-33.svg" alt="">
+            <img src="public/images/product-34.svg" alt="">
+        </div>
+        <div class="left-arrow">left</div>
+        <div class="right-arrow">right</div>
+    </div>
+
+
+
+    <!--juary主程式-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        let currentLeftNum = 0
+        $('.right-arrow').on('click', function () {
+            if (currentLeftNum == -1500) { }
+            else
+                //每點一次會扣500
+                currentLeftNum = currentLeftNum - 500
+            console.log(currentLeftNum)
+            $('.child').animate({ 'margin-left': currentLeftNum }, 400)  /*400豪秒，可自己設定*/
+
+
+        }) //right-arrow end 只有一次的效果 按右邊的按鈕第一章圖片往左位移-500px
+
+        $('.left-arrow').on('click', function () {
+            /* 假如currentLeftNum=0執行*/
+            if (currentLeftNum == 0) { }
+            else currentLeftNum = currentLeftNum + 500
+            console.log(currentLeftNum)
+            $('.child').animate({ 'margin-left': currentLeftNum }, 400)  /*400豪秒，可自己設定*/
+
+
+            //每點一次會加500
+        }) //left-arrow end 只有一次的效果 按右邊的按鈕第一章圖片往左位移加500px
+    </script>
+</body>
+
+</html>
